@@ -77,7 +77,7 @@ const memberSchema = new Schema(
 memberSchema.methods.updateMember = async function (updateObj) {
   const SALT = await bcrypt.genSalt(+process.env.SALT_ROUND)
   const password = await bcrypt.hash(updateObj.password, SALT);
-    Object.assign(this, {...updateObj, password, username: updateObj.email.split("@")[0], departments: [updateObj.department]})
+    Object.assign(this, {...updateObj, password, username: updateObj.email.split("@")[0], departments: {major: updateObj.department, otherDepts: []}})
     await this.save();
     const newData = {}
     for(const keys in this._doc) {
