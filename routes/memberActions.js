@@ -4,7 +4,7 @@ const multer = require("multer");
 const path = require("path");
 
 const member = require("../models/member");
-const isAuth = require("../middlewares/authMiddleware");
+const isAuth = require("../Middlewares/auth");
 const memberControllers = require("../controllers/memberControllers");
 
 const router = express.Router();

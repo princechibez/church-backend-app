@@ -13,19 +13,19 @@ const memberRoutes = require("./routes/memberActions")
 
 const app = express();
 
-// app.use(cors({ origin: "*", allowedHeaders: "Content-Type, Authorization", methods: "POST, GET, PUT, PATCH, DELETE" }));
+app.use(cors({ origin: "https://kingspalace-f9dd4.web.app", allowedHeaders: "Content-Type, Authorization", methods: "POST, GET, PUT, PATCH, DELETE" }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json({limit: '50mb'}));
-// app.use(helmet())
-// app.use(morgan())
-// app.use(compression())
+app.use(helmet())
+app.use(morgan())
+app.use(compression())
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, PATCH, DELETE");
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  next()
-});
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+//   res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, PATCH, DELETE");
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   next()
+// });
 
 
 app.use("/auth", authRoutes)
