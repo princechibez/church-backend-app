@@ -69,7 +69,7 @@ exports.postSignup = async (req, res, next) => {
       profilePicture: "",
       publicID: "",
       roles: ["member"],
-      departments:[department]
+      departments:{major: department, otherDepts:[]}
     });
     await member.save();
     // transporter.sendMail(
@@ -85,6 +85,7 @@ exports.postSignup = async (req, res, next) => {
     //     console.log("message sent to email address");
     //   }
     // );
+    console.log(member)
     return res.status(201).json({ message: "Account Created Successfully", member });
   } catch (err) {
     next(err);

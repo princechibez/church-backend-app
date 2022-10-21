@@ -67,7 +67,8 @@ const memberSchema = new Schema(
       default: ['member']
     },
     departments: {
-      type: Array
+      major:{type: String, required: true},
+      otherDepts: {type: Array}
     }
   },
   { timestamps: true }
