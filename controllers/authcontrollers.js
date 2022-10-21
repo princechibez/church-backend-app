@@ -103,7 +103,7 @@ exports.postLogin = async (req, res, next) => {
     }
     const member = await Member.findOne({ email: email }).select("-password");
     const token = jwt.sign({ memberId: member._id }, jwt_secret, {
-      expiresIn: "30m",
+      expiresIn: "24h",
     });
     return res.json({ token, member, message: "Login Successfull..." });
   } catch (err) {
