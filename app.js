@@ -21,7 +21,7 @@ const app = express();
 //   console.log("still...")
 //   next()
 // })
-app.use(cors({ origin: "https://kingspalace-f9dd4.web.app", allowedHeaders: "Content-Type, Authorization", methods: "POST, GET, PUT, PATCH, DELETE" }));
+app.use(cors({ origin: "*", allowedHeaders: "Content-Type, Authorization", methods: "POST, GET, PUT, PATCH, DELETE" }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json({limit: '50mb'}));
 app.use(helmet())
